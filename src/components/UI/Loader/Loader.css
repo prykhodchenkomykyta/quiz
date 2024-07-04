@@ -25,12 +25,10 @@
 .loader-text {
   font-size: 18px;
   font-weight: bold;
-  color: #ffffff;
   text-anchor: middle;
 }
 
 .loader-caption {
   margin-top: 10px;
-  color: #ffffff;
   font-size: 14px;
 }

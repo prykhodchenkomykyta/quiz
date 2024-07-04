@@ -13,7 +13,7 @@ interface Answer {
 interface QuizContextProps {
   currentQuestion: number;
   questions: Question[];
-  options: string[][];
+  options: any[];
   questionTypes: string[];
   totalQuestions: number;
   answers: Answer[];
@@ -21,6 +21,7 @@ interface QuizContextProps {
   prevQuestion: () => void;
   setAnswer: (questionIndex: number, answer: string) => void;
   resetQuiz: () => void;
+  setCurrentQuestion: (questionIndex: number) => void;
 }
 
 const initialContext: QuizContextProps = {
@@ -34,6 +35,7 @@ const initialContext: QuizContextProps = {
   prevQuestion: () => {},
   setAnswer: () => {},
   resetQuiz: () => {},
+  setCurrentQuestion: () => {},
 };
 
 export const QuizContext = createContext<QuizContextProps>(initialContext);
@@ -51,11 +53,11 @@ export const QuizProvider: React.FC<{ children: ReactNode }> = ({
       question: "What do you hate the most in a book?",
       type: "multiple-select",
     },
-    { question: "What are your favorite topics?", type: "bubble" },
+    { question: "What are your favorite topics?", type: "multiple-select" },
   ];
 
   const options = [
-    ["English", "French", "German", "Spanish"],
+    ["English", "Français", "Deutsch", "Español"],
     ["👨", "👩", "👾"],
     ["18-29 years", "30-39 years", "40-49 years", "50+"],
     ["Lack of logic", "Slow pace", "Lack of humor", "Too generic ending"],
@@ -127,6 +129,7 @@ export const QuizProvider: React.FC<{ children: ReactNode }> = ({
         prevQuestion,
         setAnswer,
         resetQuiz,
+        setCurrentQuestion,
       }}
     >
       {children}

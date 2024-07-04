@@ -1,0 +1,36 @@
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.loader {
+  width: 100px;
+  height: 100px;/
+}
+
+.loader-background {
+  fill: none;
+  stroke: #ffffff55;
+}
+
+.loader-bar {
+  fill: none;
+  stroke: #ef1775;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.1s ease;
+}
+
+.loader-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  text-anchor: middle;
+}
+
+.loader-caption {
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: 14px;
+}

@@ -1,0 +1,25 @@
+.thank-you {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #3d155f;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+button {
+  background-color: #d1c4e9;
+  color: #3d155f;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #ffffff55;
+  cursor: not-allowed;
+}

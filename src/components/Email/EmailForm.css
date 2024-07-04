@@ -1,0 +1,49 @@
+.email-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #3d155f;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.email-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.email-form input {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin: 10px 0;
+}
+
+.email-form input.error {
+  border: 2px solid red;
+}
+
+.email-form .error-text {
+  color: red;
+  margin: 0 0 10px 0;
+}
+
+button {
+  background-color: #d1c4e9;
+  color: #3d155f;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #ffffff55;
+  cursor: not-allowed;
+}

@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #3d155f;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#root {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px;
+}
+
+button {
+  background-color: #ef1775;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #c6446d55;
+  cursor: not-allowed;
+}

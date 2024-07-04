@@ -74,7 +74,7 @@ const Question: React.FC = () => {
   };
 
   const handleNext = () => {
-    if (options[currentQuestion].type === "multiple-select") {
+    if (questions[currentQuestion].type === "multiple-select") {
       if (selectedAnswers.length > 0) {
         nextQuestion(selectedAnswers.join(", "));
         if (currentQuestion + 1 < totalQuestions) {
@@ -132,13 +132,14 @@ const Question: React.FC = () => {
       <div className="options">
         {questions[currentQuestion].type === "multiple-select"
           ? options[currentQuestion].map((option, index) => (
-              <label key={index}>
+              <label key={index} className="checkbox-label">
                 <input
                   type="checkbox"
                   value={option}
                   checked={selectedAnswers.includes(option)}
                   onChange={() => handleMultiSelectAnswer(option)}
                 />
+                <span className="checkbox-custom"></span>
                 {t(option)}
               </label>
             ))
@@ -156,7 +157,7 @@ const Question: React.FC = () => {
         <button
           onClick={handleNext}
           disabled={
-            options[currentQuestion].type === "multiple-select"
+            questions[currentQuestion].type === "multiple-select"
               ? selectedAnswers.length === 0
               : !selectedAnswer
           }

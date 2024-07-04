@@ -9,7 +9,7 @@ const GratitudePage: React.FC = () => {
   if (!quizContext) {
     throw new Error("QuizContext error");
   }
-  const { resetQuiz, answers, questions, questionTypes } = quizContext;
+  const { resetQuiz, answers, questionTypes } = quizContext;
   const { t } = useTranslation();
   const navigate = useNavigate();
 

@@ -25,7 +25,7 @@
 
 .loader-text {
   font-size: 18px;
-  margin-top: 5px;
+  margin-top: 8px;
   font-weight: bold;
   text-anchor: middle;
 }
@@ -33,4 +33,5 @@
 .loader-caption {
   margin-top: 10px;
   font-size: 14px;
+  color: white;
 }

@@ -2,9 +2,14 @@ import React, { useContext, useState, useEffect } from "react";
 import "./Question.css";
 import { QuizContext } from "../../contexts/QuizContext";
 import { useTranslation } from "react-i18next";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const languageOptions = [
+interface Language {
+  code: string;
+  name: string;
+}
+
+const languageOptions: Language[] = [
   { code: "en", name: "English" },
   { code: "fr", name: "Français" },
   { code: "es", name: "Español" },
@@ -12,8 +17,6 @@ const languageOptions = [
 ];
 
 const Question: React.FC = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState(languageOptions[0]);
-  const { questionId } = useParams<{ questionId: string }>();
   const quizContext = useContext(QuizContext);
 
   if (!quizContext) {
@@ -44,16 +47,14 @@ const Question: React.FC = () => {
         (lang) => lang.code === storedLanguage
       );
       if (language) {
-        setSelectedLanguage(language);
-        i18n.changeLanguage(language.code);
+        handleLanguageSelect(language);
       }
     } else {
-      setSelectedLanguage(languageOptions[0]);
+      handleLanguageSelect(languageOptions[0]);
     }
-  }, [i18n]);
+  }, []);
 
-  const handleLanguageSelect = (language) => {
-    setSelectedLanguage(language);
+  const handleLanguageSelect = (language: Language) => {
     i18n.changeLanguage(language.code);
     localStorage.setItem("selectedLanguage", language.code);
   };
@@ -136,7 +137,7 @@ const Question: React.FC = () => {
       <h2>{t(questions[currentQuestion].question)}</h2>
       <div className="options">
         {questions[currentQuestion].type === "multiple-select"
-          ? options[currentQuestion].map((option, index) => (
+          ? options[currentQuestion].map((option: string, index: number) => (
               <label key={index} className="checkbox-label">
                 <input
                   type="checkbox"
@@ -148,7 +149,7 @@ const Question: React.FC = () => {
                 {t(option)}
               </label>
             ))
-          : options[currentQuestion].map((option, index) => (
+          : options[currentQuestion].map((option: string, index: number) => (
               <button
                 key={index}
                 onClick={() => handleAnswer(option)}

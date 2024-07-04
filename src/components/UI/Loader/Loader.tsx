@@ -39,7 +39,13 @@ const Loader: React.FC = () => {
           strokeDasharray="283"
           strokeDashoffset={283 - (progress / 100) * 283}
         />
-        <text className="loader-text" x="50" y="50" textAnchor="middle">
+        <text
+          className="loader-text"
+          x="50"
+          y="58"
+          textAnchor="middle"
+          fill="white"
+        >
           {progress}%
         </text>
       </svg>

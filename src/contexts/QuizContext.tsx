@@ -92,7 +92,7 @@ export const QuizProvider: React.FC<{ children: ReactNode }> = ({
     localStorage.setItem("answers", JSON.stringify(answers));
   }, [currentQuestion, answers]);
 
-  const nextQuestion = (answer: string) => {
+  const nextQuestion = () => {
     setCurrentQuestion((prev) => prev + 1);
   };
 

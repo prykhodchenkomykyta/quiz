@@ -27,8 +27,6 @@ const EmailForm: React.FC = () => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     if (validateEmail(email)) {
-      console.log("Email:", email);
-      console.log("Answers:", answers);
       navigate("/thank-you");
     } else {
       setEmailError(true);

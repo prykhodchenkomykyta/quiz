@@ -10,7 +10,6 @@ const EmailForm: React.FC = () => {
   if (!quizContext) {
     throw new Error("QuizContext error");
   }
-  const { answers } = quizContext;
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState(false);
   const { t } = useTranslation();

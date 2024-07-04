@@ -20,6 +20,7 @@ interface QuizContextProps {
   nextQuestion: (answer: string) => void;
   prevQuestion: () => void;
   setAnswer: (questionIndex: number, answer: string) => void;
+  setMultipleAnswers: (questionIndex: number, answers: string[]) => void;
   resetQuiz: () => void;
   setCurrentQuestion: (questionIndex: number) => void;
 }
@@ -34,6 +35,7 @@ const initialContext: QuizContextProps = {
   nextQuestion: () => {},
   prevQuestion: () => {},
   setAnswer: () => {},
+  setMultipleAnswers: () => {},
   resetQuiz: () => {},
   setCurrentQuestion: () => {},
 };
@@ -109,6 +111,17 @@ export const QuizProvider: React.FC<{ children: ReactNode }> = ({
     });
   };
 
+  const setMultipleAnswers = (questionIndex: number, answers: string[]) => {
+    setAnswers((prev) => {
+      const newAnswers = [...prev];
+      newAnswers[questionIndex] = {
+        question: questions[questionIndex].question,
+        answer: answers.join(", "),
+      };
+      return newAnswers;
+    });
+  };
+
   const resetQuiz = () => {
     setCurrentQuestion(0);
     setAnswers([]);
@@ -128,6 +141,7 @@ export const QuizProvider: React.FC<{ children: ReactNode }> = ({
         nextQuestion,
         prevQuestion,
         setAnswer,
+        setMultipleAnswers,
         resetQuiz,
         setCurrentQuestion,
       }}

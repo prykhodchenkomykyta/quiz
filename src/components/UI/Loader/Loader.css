@@ -3,11 +3,12 @@
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
+  color: white;
 }
 
 .loader {
   width: 100px;
-  height: 100px;/
+  height: 100px;
 }
 
 .loader-background {
@@ -24,6 +25,7 @@
 
 .loader-text {
   font-size: 18px;
+  margin-top: 5px;
   font-weight: bold;
   text-anchor: middle;
 }

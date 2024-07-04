@@ -15,9 +15,11 @@ const Question: React.FC = () => {
   const [selectedLanguage, setSelectedLanguage] = useState(languageOptions[0]);
   const { questionId } = useParams<{ questionId: string }>();
   const quizContext = useContext(QuizContext);
+
   if (!quizContext) {
     throw new Error("QuizContext must be used within a QuizProvider");
   }
+
   const {
     currentQuestion,
     questions,
@@ -26,7 +28,9 @@ const Question: React.FC = () => {
     nextQuestion,
     prevQuestion,
     setAnswer,
+    setMultipleAnswers,
   } = quizContext;
+
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
 
@@ -76,6 +80,7 @@ const Question: React.FC = () => {
   const handleNext = () => {
     if (questions[currentQuestion].type === "multiple-select") {
       if (selectedAnswers.length > 0) {
+        setMultipleAnswers(currentQuestion, selectedAnswers);
         nextQuestion(selectedAnswers.join(", "));
         if (currentQuestion + 1 < totalQuestions) {
           navigate(`/quiz/${currentQuestion + 1}`);
